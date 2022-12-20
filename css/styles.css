@@ -292,19 +292,45 @@ header .contacts {
 /* Main content */
 .top-block {
   background: linear-gradient(rgb(46 47 66 / 0.7), rgb(46 47 66 / 0.7)),
-    url(../images/hero-background.jpg) center no-repeat;
+    url(../images/hero-background-mobile.jpg) center no-repeat;
   background-size: auto, 1440px auto;
   color: #fff;
   padding-block: 112px;
 }
 
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (max-width: 767px) and (min-resolution: 192dpi),
+  screen and (max-width: 767px) and (min-resolution: 2dppx) {
+  .top-block {
+    background: linear-gradient(rgb(46 47 66 / 0.7), rgb(46 47 66 / 0.7)),
+      url("../images/hero-background-mobile@2x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top-block {
+    background: linear-gradient(rgb(46 47 66 / 0.7), rgb(46 47 66 / 0.7)),
+      url("../images/hero-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 767px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-width: 767px) and (min-resolution: 192dpi),
+  screen and (min-width: 767px) and (min-resolution: 2dppx) {
   .top-block {
     background: linear-gradient(rgb(46 47 66 / 0.7), rgb(46 47 66 / 0.7)),
       url("../images/hero-background@2x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
@@ -1242,7 +1268,7 @@ footer .footer-text {
 }
 
 .modal-window-continer .form-privacypolicy-block label:focus-within .checkbox {
-  outline: 2px solid #000;
+  border: 1.25px solid var(--brand-color);
 }
 
 .modal-window-continer .form-privacypolicy-block .label {
@@ -1269,11 +1295,15 @@ footer .footer-text {
   align-items: center;
   justify-content: center;
   padding: 0;
+  transition-property: border-color, background-color;
+  transition: var(--animation-duration) var(--transition-timing-function);
 }
 
 .modal-window-continer .form-privacypolicy-block .checkbox svg {
   opacity: 0;
   fill: var(--cloud-color);
+  transition: opacity var(--animation-duration)
+    var(--transition-timing-function);
 }
 
 .modal-window-continer
